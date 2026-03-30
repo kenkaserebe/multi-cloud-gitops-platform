@@ -1,5 +1,6 @@
 # multi-cloud-gitops-platform/environments/aws/backend.tf
 
+# This is where the AWS terraform state file will be stored.
 terraform {
   backend "s3" {
     key = "eks-cluster/terraform.tfstate"
