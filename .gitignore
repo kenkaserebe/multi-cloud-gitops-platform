@@ -1,0 +1,5 @@
+# Backend storage file
+backend.hcl
+
+# .tfvars
+*.tfvars

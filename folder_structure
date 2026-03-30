@@ -1,0 +1,65 @@
+multi-cloud_gitops_platform/
+|---bootstrap
+|   |---aws/
+|   |    |---main.tf
+|   |    |---variables.tf
+|   |    |---outputs.tf
+|   |    |---terraform.tfvars
+|   |
+|   |---azure/
+|        |---main.tf
+|        |---variables.tf
+|        |---outputs.tf
+|        |---terraform.tfvars
+|
+|---modules/
+│   |---eks/
+│   │   |---main.tf
+│   │   |---variables.tf
+│   │   |---outputs.tf
+│   │   |---README.md
+|   |
+│   |---aks/
+│       |---main.tf
+│       |---variables.tf
+│       |---outputs.tf
+│       |---README.md
+|
+|---environments/
+│   |---aws/
+│   │   |---main.tf
+│   │   |---variables.tf
+│   │   |---outputs.tf
+│   │   |---terraform.tfvars   (or .auto.tfvars)
+│   │   |---backend.tf          (S3 backend config)
+|   |
+│   |---azure/
+│       |---main.tf
+│       |---variables.tf
+│       |---outputs.tf
+│       |---terraform.tfvars
+│       |---backend.tf          (Azure Storage backend config)
+|
+|---scripts/                     (optional helper scripts)
+|---README.md
+|---hello-world-app/
+|   |---.github/
+|   |    |---workflows/
+|   |        |---ci.yml
+|   |
+|   |---.gitignore
+|   |---app.py
+|   |---Dockerfile
+|   |---README.md
+|   |---requirements.txt
+|
+|---hello-world-gitops/
+|   |---aws/
+|   |   |---argocd-app.yaml
+|   |   |---deployment.yaml
+|   |   |---service.yaml
+|   |
+|   |---azure/
+|   |   |---argocd-app.yaml
+|   |   |---deployment.yaml
+|   |   |---service.yaml
