@@ -35,6 +35,10 @@ resource "aws_ecr_repository" "app_repo" {
   }
 }
 
+output "ecr_repository_url" {
+  value = aws_ecr_repository.app_repo.repository_url
+}
+
 
 # Data sources to get authentication info for the EKS cluster
 data "aws_eks_cluster" "this" {
