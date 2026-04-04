@@ -5,7 +5,7 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 # Fetch available AZs
-data "aws_availability_zone" "available" {
+data "aws_availability_zones" "available" {
   state = "available"
 }
 
@@ -17,9 +17,9 @@ module "vpc" {
   name                  = "${var.cluster_name}-vpc"
   cidr                  = var.vpc_cidr
 
-  azs                   = slice(data.aws_availability_zone.available.names, 0, 3) # Use the first 3 AZs
-  private_subnets       = [for i, az in slice(data.data.aws_availability_zone.available.names, 0, 3) : cidrsubnet(var.vpc_cidr, 4, i)]
-  public_subnets        = [for i, az in slice(data.data.aws_availability_zone.available.names, 0, 3) : cidrsubnet(var.vpc_cidr, 4, i + 3)]
+  azs                   = slice(data.aws_availability_zones.available.names, 0, 3) # Use the first 3 AZs
+  private_subnets       = [for i, az in slice(data.aws_availability_zones.available.names, 0, 3) : cidrsubnet(var.vpc_cidr, 4, i)]
+  public_subnets        = [for i, az in slice(data.aws_availability_zones.available.names, 0, 3) : cidrsubnet(var.vpc_cidr, 4, i + 3)]
 
   enable_nat_gateway    = true
   single_nat_gateway    = true
