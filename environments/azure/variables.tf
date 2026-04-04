@@ -46,7 +46,7 @@ variable "vnet_address_space" {
 variable "subnet_address_prefixes" {
   description   = "Address prefixes for the AKS subnet"
   type          = list(string)
-  default       = ["10.1.0.0/16"]
+  default       = ["10.1.0.0/24"]
 }
 
 variable "dns_prefix" {
